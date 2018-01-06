@@ -31,6 +31,8 @@ else()
     # Put the FindSDL2.cmake in ./cmake and tell CMake to find it there
     set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
+    set(SDL2MAIN_LIBRARY "")
+
     find_package(SDL2 REQUIRED)
     find_package(SDL2_image REQUIRED)
     # find_package(SDL2_ttf REQUIRED)
@@ -54,6 +56,6 @@ add_executable(${PROJECT_NAME} WIN32 ${SOURCE_FILES})
 
 # SDL2MAIN_LIBRARY is needed for Windows specific main function.
 target_link_libraries(${PROJECT_NAME}
-		${SDL2MAIN_LIBRARY}
+        ${SDL2MAIN_LIBRARY}
         ${SDL2_LIBRARY}
         ${SDL2_IMAGE_LIBRARIES})
